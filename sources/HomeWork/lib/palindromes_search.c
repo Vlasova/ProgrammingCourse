@@ -15,11 +15,7 @@ char search_palindromes(char* string)
            ++count;
 
    }
-   if (count!=0) string="no";
 
-   return (string);
-
-   string = "";
-
+   return (count);
 
 }

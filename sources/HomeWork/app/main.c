@@ -3,6 +3,8 @@
 #include "search_sine.h"
 #include "shahmati_ugroza.h"
 #include "trancfer_to_meters.h"
+#include "palindromes_read.h"
+#include "main.h"
 
 int main()
 {
@@ -77,6 +79,8 @@ int main()
 
         break;
     }
+    return (0);
+
 }
 
 

@@ -1,31 +1,41 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <palindromes_read.h>
+#include "palindromes_read.h"
+#include "palindromes_search.h"
 
-void file_open()
+int file_open()
 {
     FILE *file;
     file = fopen("palindromes.txt", "r");
     char *string;
-    char *result3;
-    int N=10;
-    int i=0;
-    int plus_memory=5;
-    string = (char*) malloc (N*sizeof(char));
-    while (!EOF){
-    while ((string[i]=fgetc(file))!='\n')
+    char palindrom[30];
+    int result;
+    if (file==0)
     {
-        if (++i>=N){
-            N+=plus_memory;
-            string = (char*) realloc (string, N*sizeof(char));
-        }
+        printf("Ошибка \n"); return -1;}
+    else printf ("Найденные палиндромы:\n");
 
-        fclose(file);
+
+    while (1)
+    { string = fgets(palindrom, sizeof(palindrom), file);
+      if (string == NULL) {
+          if(feof(file)!=0)
+          {printf ("Конец файла \n");
+              break;}
+          else
+          {printf("Ошибка чтения \n");
+              break;}
+      }
+
+
+      else result = search_palindromes(string);
+      if (result ==0) printf ("%s \n", string);
+
     }
-    result3 = search_palindromes(string);
-    if (strcmp(result3, "no") != 0)
-        printf ("%s \n", result3);
+    fclose(file);
+    return 0;
+
 }
-}
+
 

@@ -2,7 +2,7 @@
 #include <QtTest>
 #include "search_clear.h"
 #include "search_threat.h"
-#include "sin_x.h"
+#include "sinx.h"
 #include "trancfer_to_meter.h"
 
 

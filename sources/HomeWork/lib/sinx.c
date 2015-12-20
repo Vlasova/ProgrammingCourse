@@ -1,18 +1,18 @@
 #include <stdio.h>
-#include "sin_x.h"
+#include "sinx.h"
 
 double sinx (double x, double exact)
 {
-    double summand, result, i;
+    double summand, sin, i;
     summand=x;
-    result=summand;
+    sin=summand;
     i=0;
     do {
         i++;
         summand*=((-1)*x*x)/(2*i*(2*i+1));
-        result+=summand;
+        sin+=summand;
     }
     while (summand>exact);
-    return(result);
+    return(sin);
 
 }

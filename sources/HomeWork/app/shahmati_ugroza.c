@@ -1,10 +1,11 @@
 #include <stdio.h>
 #include "shahmati_ugroza.h"
+#include "search_threat.h"
 
-int search_threat_reading()
+void search_threat_reading()
 {
     int xking, yking, xladya, yladya, xslon, yslon;
-    int result = 0;
+    int result;
 
 
     puts("Введите через пробел координаты короля, ладьи и слона");
