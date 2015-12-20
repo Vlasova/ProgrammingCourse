@@ -6,10 +6,10 @@
 void search_sine ()
 {
     double x, exact = 0;
+    double result;
     puts("Введите через пробел значения x и точности");
     scanf("%lf %lf", &x, &exact);
-    double result;
-    double sinx(result);
+    double sinx(x, exact);
     printf("sinx = %G", result);
 
 }

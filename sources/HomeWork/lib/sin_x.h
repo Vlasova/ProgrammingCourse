@@ -5,7 +5,7 @@
 extern "C"{
 #endif
 
-double sinx();
+double sinx(double, double);
 
 
 #ifdef __cplusplus

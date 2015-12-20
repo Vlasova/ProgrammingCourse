@@ -1,4 +1,6 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 #include <palindromes_read.h>
 
 void file_open()
@@ -6,6 +8,7 @@ void file_open()
     FILE *file;
     file = fopen("palindromes.txt", "r");
     char *string;
+    char *result3;
     int N=10;
     int i=0;
     int plus_memory=5;
@@ -17,9 +20,12 @@ void file_open()
             N+=plus_memory;
             string = (char*) realloc (string, N*sizeof(char));
         }
+
+        fclose(file);
     }
-    void search_palindromes();
-    }
-    fclose (file);
+    result3 = search_palindromes(string);
+    if (strcmp(result3, "no") != 0)
+        printf ("%s \n", result3);
+}
 }
 

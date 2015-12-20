@@ -3,8 +3,9 @@
 #include <stdlib.h>
 #include <palindromes_search.h>
 
-void search_palindromes(char* string, int i)
+char search_palindromes(char* string)
 {
+   int i;
    int lenght;
    int count = 0;
    lenght = strlen(string);
@@ -14,10 +15,11 @@ void search_palindromes(char* string, int i)
            ++count;
 
    }
-   if (count == 0)
-       printf ("%s \n", string);
+   if (count!=0) string="no";
 
-   string = 0;
+   return (string);
+
+   string = "";
 
 
 }

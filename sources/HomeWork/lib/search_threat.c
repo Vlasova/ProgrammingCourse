@@ -1,18 +1,15 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include "search_threat.h"
 
-struct shahmati {
-    int king;
-    int ladya;
-    int slon;
-};
-
-void search_threat()
+int search_threat(int xking, int yking, int xladya, int yladya, int xslon, int yslon)
 {
-    struct shahmati x, y;
+    int threat;
 
-    if (x.king==x.ladya) puts ("Угроза от ладьи");
-    if (y.king==y.ladya) puts ("Угроза от ладьи");
-    if ((abs(x.king-x.slon))==(abs(y.king-y.slon))) puts ("Угроза от слона");
+   if (xking==xladya) threat = 1;
+   if (yking==yladya) threat = 2;
+   if ((abs(xking-xslon))==(abs(yking-yslon))) threat = 3;
+
+    return (threat);
 
 }

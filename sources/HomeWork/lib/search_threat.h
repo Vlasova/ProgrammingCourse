@@ -5,7 +5,7 @@
 extern "C"{
 #endif
 
-void search_threat();
+int search_threat(int, int, int, int, int, int);
 #ifdef __cplusplus
 }
 #endif

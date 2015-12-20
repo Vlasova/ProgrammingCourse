@@ -3,15 +3,13 @@
 
 double trancfer_to_meters (double sazhen, double arshin, double vershok)
 {
-    double sm;
     double m;
+    double sm;
     arshin = sazhen * 3 + arshin;
     vershok = arshin * 16 + vershok;
     sm = vershok * 4.445;
     m = sm/100;
 
-    printf("%lf м", m);
-
-
+    return(m);
 
 }
