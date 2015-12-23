@@ -16,6 +16,6 @@ void file_clear()
         }
 
     fclose (fp);
-    int clear();
+    void clear(int n, int* matrix);
 
 }

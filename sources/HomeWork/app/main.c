@@ -18,66 +18,49 @@ int main()
     scanf ("%d", &choice);
     switch (choice) {
     case 1:
-        puts ("1. transfer to meters");
-        puts ("2. automatic test");
-        int choice2;
-        scanf ("%d", &choice2);
-        switch (choice2) {
-        case 1:
-            trancfer();
-            break;
+        puts ("transfer to meters");
+
+        trancfer();
+        break;
 
 
 
-        }
+
     case 2:
-        puts ("1. search chess threat");
-        puts ("2. automatic test");
-        int choice3;
-        scanf ("%d", &choice3);
-        switch (choice3){
-        case 1:
-            search_threat_reading();
-            break;
+        puts ("search chess threat");
+
+        search_threat_reading();
+        break;
 
 
 
-         }
+
     case 3:
-        puts ("1. search sine");
-        puts ("2. automatic test");
-        int choice4;
-        scanf ("%d", &choice4);
-        switch (choice4){
-        case 1:
-            search_sine();
-            break;
+        puts ("search sine");
+
+        search_sine();
+        break;
 
 
-        }
+
+
     case 4:
-        puts ("1. search clear in array");
-        puts ("2. automatic test");
-        int choice5;
-        scanf ("%d", &choice5);
-        switch (choice5){
-        case 1:
-            file_clear();
-            break;
-        }
+        puts ("search clear in array");
+
+        file_clear();
+        break;
+
+
+
 
     case 5:
-        puts ("1. search palindromes");
-        puts ("2. automatic test");
-        int choice6;
-        scanf ("%d", &choice6);
-        switch (choice6){
-        case 1:
-            file_open();
-            break;
-        }
+        puts ("search palindromes");
 
+        file_open();
         break;
+
+
+
     }
     return (0);
 

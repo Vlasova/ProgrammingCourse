@@ -1,6 +1,6 @@
 TEMPLATE = subdirs
 app.depends = lib
-test.depends = lib
+app.depends = test
 
 SUBDIRS += \
     app \

@@ -1,0 +1,381 @@
+\documentclass[12pt,a4paper]{report}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\usepackage[OT1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{cmap}					% поиск в PDF
+\usepackage{mathtext} 				% русские буквы в формулах
+%\usepackage{tikz-uml}               % uml диаграммы
+
+% TODOs
+\usepackage[%
+  colorinlistoftodos,
+  shadow
+]{todonotes}
+
+% Генератор текста
+\usepackage{blindtext}
+
+%------------------------------------------------------------------------------
+
+% Подсветка синтаксиса
+\usepackage{color}
+\usepackage{xcolor}
+\usepackage{listings}
+ 
+ % Цвета для кода
+\definecolor{string}{HTML}{B40000} % цвет строк в коде
+\definecolor{comment}{HTML}{008000} % цвет комментариев в коде
+\definecolor{keyword}{HTML}{1A00FF} % цвет ключевых слов в коде
+\definecolor{morecomment}{HTML}{8000FF} % цвет include и других элементов в коде
+\definecolor{captiontext}{HTML}{FFFFFF} % цвет текста заголовка в коде
+\definecolor{captionbk}{HTML}{999999} % цвет фона заголовка в коде
+\definecolor{bk}{HTML}{FFFFFF} % цвет фона в коде
+\definecolor{frame}{HTML}{999999} % цвет рамки в коде
+\definecolor{brackets}{HTML}{B40000} % цвет скобок в коде
+ 
+ % Настройки отображения кода
+\lstset{
+language=C, % Язык кода по умолчанию
+morekeywords={*,...}, % если хотите добавить ключевые слова, то добавляйте
+ % Цвета
+keywordstyle=\color{keyword}\ttfamily\bfseries,
+stringstyle=\color{string}\ttfamily,
+commentstyle=\color{comment}\ttfamily\itshape,
+morecomment=[l][\color{morecomment}]{\#}, 
+ % Настройки отображения     
+breaklines=true, % Перенос длинных строк
+basicstyle=\ttfamily\footnotesize, % Шрифт для отображения кода
+backgroundcolor=\color{bk}, % Цвет фона кода
+%frame=lrb,xleftmargin=\fboxsep,xrightmargin=-\fboxsep, % Рамка, подогнанная к заголовку
+frame=tblr
+rulecolor=\color{frame}, % Цвет рамки
+tabsize=3, % Размер табуляции в пробелах
+showstringspaces=false,
+ % Настройка отображения номеров строк. Если не нужно, то удалите весь блок
+numbers=left, % Слева отображаются номера строк
+stepnumber=1, % Каждую строку нумеровать
+numbersep=5pt, % Отступ от кода 
+numberstyle=\small\color{black}, % Стиль написания номеров строк
+ % Для отображения русского языка
+extendedchars=true,
+literate={Ö}{{\"O}}1
+  {Ä}{{\"A}}1
+  {Ü}{{\"U}}1
+  {ß}{{\ss}}1
+  {ü}{{\"u}}1
+  {ä}{{\"a}}1
+  {ö}{{\"o}}1
+  {~}{{\textasciitilde}}1
+  {а}{{\selectfont\char224}}1
+  {б}{{\selectfont\char225}}1
+  {в}{{\selectfont\char226}}1
+  {г}{{\selectfont\char227}}1
+  {д}{{\selectfont\char228}}1
+  {е}{{\selectfont\char229}}1
+  {ё}{{\"e}}1
+  {ж}{{\selectfont\char230}}1
+  {з}{{\selectfont\char231}}1
+  {и}{{\selectfont\char232}}1
+  {й}{{\selectfont\char233}}1
+  {к}{{\selectfont\char234}}1
+  {л}{{\selectfont\char235}}1
+  {м}{{\selectfont\char236}}1
+  {н}{{\selectfont\char237}}1
+  {о}{{\selectfont\char238}}1
+  {п}{{\selectfont\char239}}1
+  {р}{{\selectfont\char240}}1
+  {с}{{\selectfont\char241}}1
+  {т}{{\selectfont\char242}}1
+  {у}{{\selectfont\char243}}1
+  {ф}{{\selectfont\char244}}1
+  {х}{{\selectfont\char245}}1
+  {ц}{{\selectfont\char246}}1
+  {ч}{{\selectfont\char247}}1
+  {ш}{{\selectfont\char248}}1
+  {щ}{{\selectfont\char249}}1
+  {ъ}{{\selectfont\char250}}1
+  {ы}{{\selectfont\char251}}1
+  {ь}{{\selectfont\char252}}1
+  {э}{{\selectfont\char253}}1
+  {ю}{{\selectfont\char254}}1
+  {я}{{\selectfont\char255}}1
+  {А}{{\selectfont\char192}}1
+  {Б}{{\selectfont\char193}}1
+  {В}{{\selectfont\char194}}1
+  {Г}{{\selectfont\char195}}1
+  {Д}{{\selectfont\char196}}1
+  {Е}{{\selectfont\char197}}1
+  {Ё}{{\"E}}1
+  {Ж}{{\selectfont\char198}}1
+  {З}{{\selectfont\char199}}1
+  {И}{{\selectfont\char200}}1
+  {Й}{{\selectfont\char201}}1
+  {К}{{\selectfont\char202}}1
+  {Л}{{\selectfont\char203}}1
+  {М}{{\selectfont\char204}}1
+  {Н}{{\selectfont\char205}}1
+  {О}{{\selectfont\char206}}1
+  {П}{{\selectfont\char207}}1
+  {Р}{{\selectfont\char208}}1
+  {С}{{\selectfont\char209}}1
+  {Т}{{\selectfont\char210}}1
+  {У}{{\selectfont\char211}}1
+  {Ф}{{\selectfont\char212}}1
+  {Х}{{\selectfont\char213}}1
+  {Ц}{{\selectfont\char214}}1
+  {Ч}{{\selectfont\char215}}1
+  {Ш}{{\selectfont\char216}}1
+  {Щ}{{\selectfont\char217}}1
+  {Ъ}{{\selectfont\char218}}1
+  {Ы}{{\selectfont\char219}}1
+  {Ь}{{\selectfont\char220}}1
+  {Э}{{\selectfont\char221}}1
+  {Ю}{{\selectfont\char222}}1
+  {Я}{{\selectfont\char223}}1
+  {і}{{\selectfont\char105}}1
+  {ї}{{\selectfont\char168}}1
+  {є}{{\selectfont\char185}}1
+  {ґ}{{\selectfont\char160}}1
+  {І}{{\selectfont\char73}}1
+  {Ї}{{\selectfont\char136}}1
+  {Є}{{\selectfont\char153}}1
+  {Ґ}{{\selectfont\char128}}1
+  {\{}{{{\color{brackets}\{}}}1 % Цвет скобок {
+  {\}}{{{\color{brackets}\}}}}1 % Цвет скобок }
+}
+ 
+ % Для настройки заголовка кода
+\usepackage{caption}
+\DeclareCaptionFont{white}{\color{сaptiontext}}
+\DeclareCaptionFormat{listing}{\parbox{\linewidth}{\colorbox{сaptionbk}{\parbox{\linewidth}{#1#2#3}}\vskip-4pt}}
+\captionsetup[lstlisting]{format=listing,labelfont=white,textfont=white}
+\renewcommand{\lstlistingname}{Код} % Переименование Listings в нужное именование структуры
+
+
+%------------------------------------------------------------------------------
+
+\author{А. В. Власова}
+\title{Программирование}
+\begin{document}
+\listoftodos
+\maketitle
+%############################################################
+\chapter{Основные конструкции языка}
+\section{Задание 1}
+\subsection{Задание}
+Пользователь задает длину отрезка в саженях, аршинах и вершках (например, 8 саженей 2 аршина 11.4 вершка). Определить длину того же отрезка в метрах (в данном случае 19). 1 сажень = 3 аршина = 48 вершков, 1 вершок = 4.445 см.
+\subsection{Теоритические сведения}
+
+В процессе написания кода программы были использованы функции ввода/вывода prinf(), scanf() и puts(), содержащиеся в стандартном заголовочном файле stdio.h. 
+
+
+\subsection{Проектирование}
+
+Среда разработки: QT Creator 3.5.1 (opensource)
+
+Компилятор: GCC
+
+В программе разделены взаимодействие с пользователем и бизнес-логика.\begin{verbatim} trancfer_to_meters.c\end{verbatim}  считывает из консоли введенное пользователем количество саженей, аршинов и вершков, после чего передает их функции \begin{verbatim}double trancfer_to_meters() \end{verbatim}.\begin{verbatim}trancfer_to_meter.c \end{verbatim} переводит полученные данные в метры. Окончательный результат выводится в консоль.
+
+Для контроля исправности программы были созданы модульные тесты, расположенные в файле \begin{verbatim}tst_testtest.cpp \end{verbatim}.
+
+\subsection{Тестовый план и результаты тестирования}
+
+При проведении модульного тестирования программа вызывает функцию \begin{verbatim}void trancfer_test()\end{verbatim} Код тестируется с помощью макроса QCOMPARE(), который сравнивает значение, полученное в функции \begin{verbatim}double trancfer_to_meters(), \end{verbatim} и ожидаемый результат. При несовпадении данных, выполнение программы завершается сообщением о непройденом тесте.
+
+
+\subsection{Выводы}
+
+Выполнение задания позволило освоить процесс разделения программы на взаимодействие с пользователем и бизнес-логику, а также приобрести некоторые навыки отладки кода и исправления ошибок, выводимых компилятором.
+
+
+\subsection*{Листинги}
+\lstinputlisting[]
+{../sources/HomeWork/app/main.c}
+
+\lstinputlisting[]
+{../sources/HomeWork/app/trancfer_to_meters.c}
+
+\lstinputlisting[]
+{../sources/HomeWork/app/trancfer_to_meters.h}
+
+\lstinputlisting[]
+{../sources/HomeWork/lib/trancfer_to_meter.c}
+
+\lstinputlisting[]
+{../sources/HomeWork/lib/trancfer_to_meter.h}
+
+\lstinputlisting[]
+{../sources/HomeWork/test/tst_testtest.cpp}
+
+
+%############################################################
+
+\section{Задание 2}
+\subsection{Задание}
+На шахматной доске стоят черный король и белые ладья и слон (ладья бьет по горизонтали и вертикали, слон — по диагоналям). Проверить, есть ли угроза королю и если есть, то от кого именно. Координаты короля, ладьи и слона вводить целыми числами.
+\subsection{Теоритические сведения}
+В процессе написания кода программы в фа	йле \begin{verbatim}search_threat.c\end{verbatim} был использован оператор ветвления if. Также были задействованы функции ввода/вывода puts(), scanf() и математическая функция abs().
+
+\subsection{Проектирование}
+Среда разработки: QT Creator 3.5.1 (opensource)
+
+Компилятор: GCC
+
+В программе разделены взаимодействие с пользователем и бизнес-логика. \begin{verbatim}shahmati_ugroza.c \end{verbatim} считывает из консоли введенные пользователем координаты короля, ладьи и слона. Полученные данные передаются функции \begin{verbatim}int search_threat() \end{verbatim}, где происходит поиск угроз королю со стороны слона и ладьи. Найденные угрозы выводятся в консоль.
+
+Для контроля исправности программы были созданы модульные тесты, расположенные в файле \begin{verbatim}tst_testtest.cpp \end{verbatim}.
+
+ 
+\subsection{Тестовый план и результаты тестирования}
+
+При проведении модульного тестирования программа вызывает функцию \begin{verbatim}void search_threat_test() \end{verbatim}. Код тестируется с помощью макроса QCOMPARE(), который сравнивает значение, полученное в функции \begin{verbatim}int search_threat() \end{verbatim}, и ожидаемый результат. При несовпадении данных, выполнение программы завершается сообщением о непройденом тесте.
+
+\subsection{Выводы}
+
+Выполнение задания позволило освоить процесс разделения программы на взаимодействие с пользователем и бизнес-логику, а также приобрести некоторые навыки отладки кода и исправления ошибок, выводимых компилятором.
+
+\subsection*{Листинги}
+\lstinputlisting[]
+{../sources/HomeWork/app/main.c}
+
+\lstinputlisting[]
+{../sources/HomeWork/app/shahmati_ugroza.c}
+
+\lstinputlisting[]
+{../sources/HomeWork/app/shahmati_ugroza.h}
+
+\lstinputlisting[]
+{../sources/HomeWork/lib/search_threat.c}
+
+\lstinputlisting[]
+{../sources/HomeWork/lib/search_threat.h}
+
+\lstinputlisting[]
+{../sources/HomeWork/test/tst_testtest.cpp}
+
+%############################################################
+\chapter{Циклы}
+\section{Задание 3}
+\subsection{Задание}
+Используя ряд $sin x = x - \frac{x3}{3!} + \frac{x5}{5!} - \frac{x7}{7!} + …$, рассчитать значение синуса x с заданной точностью (например, $10^{-3}$). Заданную точность считать достигнутой, если очередной элемент ряда меньше заданной точности.
+
+\subsection{Теоритические сведения}
+В процессе написания кода программы был использован цикл do while для поочередного определения слагаемых. Цикл прекращается при достижении указанной точности. Кроме того, были применены функции ввода/вывода puts(), scanf() и printf().
+  
+\subsection{Проектирование}
+Среда разработки: QT Creator 3.5.1 (opensource)
+
+Компилятор: GCC
+
+В программе разделены взаимодействие с пользователем и бизнес-логика. \begin{verbatim}search_sine.c \end{verbatim} считывает из консоли введенные пользователем значение x и точность. Полученные данные передаются функции \begin{verbatim}double sinx() \end{verbatim}, где высчитывается значение sin(x).
+
+Для контроля исправности программы были созданы модульные тесты, расположенные в файле \begin{verbatim}tst_testtest.cpp \end{verbatim}.
+
+
+\subsection{Тестовый план и результаты тестирования}
+При проведении модульного тестирования программа вызывает функцию \begin{verbatim}void search_sine_test() \end{verbatim}. Код тестируется с помощью макроса QCOMPARE(), который сравнивает значение, полученное в функции \begin{verbatim}double sinx() \end{verbatim}, и ожидаемый результат. При несовпадении данных, выполнение программы завершается сообщением о непройденом тесте.
+
+\subsection{Выводы}
+Выполнение задания позволило освоить процесс создания цикла do while, а также выяснить пути исправления некоторых ошибок, выводимых комплятором.
+
+\subsection*{Листинги}
+\lstinputlisting[]
+{../sources/HomeWork/app/main.c}
+
+\lstinputlisting[]
+{../sources/HomeWork/app/search_sine.c}
+
+\lstinputlisting[]
+{../sources/HomeWork/app/search_sine.h}
+
+\lstinputlisting[]
+{../sources/HomeWork/lib/sinx.c}
+
+\lstinputlisting[]
+{../sources/HomeWork/lib/sinx.h}
+
+\lstinputlisting[]
+{../sources/HomeWork/test/tst_testtest.cpp}
+
+
+
+%############################################################
+
+\chapter{Массивы}
+\section{Задание 4}
+\subsection{Задание}
+Квадрат n x n состоит из прозрачных и непрозрачных маленьких квадратов. Имеется ли хотя бы один просвет по каждому из двух измерений? Вывести координаты каждого просвета.
+
+\subsection{Теоритические сведения}
+
+В процессе написания кода программы для работы с файлом и для динамического выделения памяти были использованы указатели. Кроме того, были применены циклы while и for, оператор ветвления if. Также использовались функции для работы с файлом fopen() и fclose(), функции выделения и освобождения памяти malloc() и free(), функция чтения данных из файла fscanf(), функция вывода printf().
+
+\subsection{Проектирование}
+Среда разработки: QT Creator 3.5.1 (opensource)
+
+Компилятор: GCC
+
+В программе разделены взаимодействие с пользователем и бизнес-логика. Функция \begin{verbatim}void file_clear()\end{verbatim} считывает из файла данные и записывает их в двумерный массив. Полученные данные передаются функции \begin{verbatim}void clear() \end{verbatim}, где происходит поиск пустых строк и столбцов массива.
+
+\subsection{Выводы}
+Выполнение задания позволило освоить процесс динамического выделения памяти и научиться работать с массивами.
+
+\subsection*{Листинги}
+\lstinputlisting[]
+{../sources/HomeWork/app/main.c}
+
+\lstinputlisting[]
+{../sources/HomeWork/app/file_clear.c}
+
+\lstinputlisting[]
+{../sources/HomeWork/app/file_clear.h}
+
+\lstinputlisting[]
+{../sources/HomeWork/lib/search_clear.c}
+
+\lstinputlisting[]
+{../sources/HomeWork/lib/search_clear.h}
+
+%############################################################
+
+\chapter{Строки}
+\section{Задание 5}
+\subsection{Задание}
+Имеется большой словарь русских слов. Найти в нем слова-палиндромы, одинаково читающиеся как слева направо, так и справа налево, например, АННА, ШАЛАШ.
+
+\subsection{Теоритические сведения}
+В процессе написания кода программы была использована функция поиска длины строки strlenght(), функции для работы с файлами fopen() и fclose(). Также были применены циклы while и for, оператор ветвления if. 
+  
+\subsection{Проектирование}
+Среда разработки: QT Creator 3.5.1 (opensource)
+
+Компилятор: GCC
+
+В программе разделены взаимодействие с пользователем и бизнес-логика. \begin{verbatim}palindromes_read.c \end{verbatim} считывает из файла слова и передает их функции \begin{verbatim}char search_palindromes() \end{verbatim}, где определяется, является слово палиндромом или нет. 
+
+
+\subsection{Выводы}
+Выполнение задания позволило освоить некоторые функции заголовочного файла string.h.
+
+\subsection*{Листинги}
+\lstinputlisting[]
+{../sources/HomeWork/app/main.c}
+
+\lstinputlisting[]
+{../sources/HomeWork/app/palindromes_read.c}
+
+\lstinputlisting[]
+{../sources/HomeWork/app/palindromes_read.h}
+
+\lstinputlisting[]
+{../sources/HomeWork/lib/palindromes_search.c}
+
+\lstinputlisting[]
+{../sources/HomeWork/lib/palindromes_search.h}
+
+\end{document}
