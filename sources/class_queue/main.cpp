@@ -7,6 +7,7 @@ int main()
 {
 
     Queue a;
+    a.minus_element();
     a.plus_element(3);
     a.plus_element(12);
     a.plus_element(45);

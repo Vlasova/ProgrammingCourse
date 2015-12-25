@@ -5,8 +5,11 @@ using namespace std;
 
 Queue::Queue()
 {
+    queue = new int[SIZE];
     begin_of_queue = 0;
     end_of_queue = 0;
+    for (i=0; i<SIZE; i++)
+        queue[i]=0;
 
 }
 
@@ -16,33 +19,53 @@ Queue::Queue(const Queue &OtherQueue):
 
 
 {
-    for (i=0; i<50; i++)
-        q[i]=OtherQueue.q[i];
+    for (i=0; i<SIZE; i++)
+        queue[i]=OtherQueue.queue[i];
 
 }
 
-Queue::~Queue()
-{
-
-}
 
 Queue::plus_element(int element)
 {
-    if (end_of_queue == 49)
-        cout<<"Очередь заполнена \n";
-    q[end_of_queue] = element;
-    end_of_queue++;
+    try
+    {
+        if (end_of_queue - 1 == SIZE)
+            throw 2;
+
+        queue[end_of_queue] = element;
+        end_of_queue++;
+
+    }
+
+    catch(int error)
+    {
+        cout<<"Ошибка №"<<error<<": очередь полностью заполнена"<<endl;
+    }
 
     return 0;
 }
 
 Queue::minus_element()
 {
-    if (begin_of_queue == end_of_queue)
-        cout<<"В очереди нет эелементов \n";
+    try
+    {
+        if(begin_of_queue == end_of_queue)
+            throw 1;
 
-    for (i = 0; i<49; i++)
-        q[i] = q[i+1];
+        for (i = 0; i<=SIZE; i++)
+        {
+            queue[i] = queue[i+1];
+            queue[SIZE]=0;
+
+        end_of_queue--;
+        }
+
+    }
+
+    catch(int error)
+    {
+        cout<<"Ошибка №"<<error<<": в очереди нет элементов"<<endl;
+    }
 
     return 0;
 }
@@ -50,11 +73,20 @@ Queue::minus_element()
 
 Queue::print_queue()
 {
-    if (begin_of_queue == end_of_queue)
-        cout<<"В очереди нет элементов \n";
+    try
+    {
+      if (begin_of_queue == end_of_queue)
+          throw 1;
 
-    for (i=0; i<50; i++)
-        cout<<q[i]<<" ";
+      for (i=0; i<SIZE; i++)
+          cout<<queue[i]<<" ";
+
+    }
+    catch(int error)
+    {
+        cout<<"Ошибка №"<<error<<": в очереди не элементов"<<endl;
+    }
+
 
     return 0;
 }

@@ -5,13 +5,13 @@ class Queue {
 public:
     Queue();
     Queue(const Queue &otherQueue);
-    ~Queue();
     int plus_element(int element);
     int minus_element();
     int print_queue();
 
 private:
-    int q[50];
+    const int SIZE=50;
+    int *queue;
     int i;
     int begin_of_queue;
     int end_of_queue;
