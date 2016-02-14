@@ -27,29 +27,20 @@ Queue::Queue(const Queue &OtherQueue):
 
 Queue::plus_element(int element)
 {
-    try
-    {
+
         if (end_of_queue - 1 == SIZE)
             throw 2;
 
         queue[end_of_queue] = element;
         end_of_queue++;
+        return 0;
 
-    }
 
-    catch(int error)
-    {
-        cout<<"Ошибка №"<<error<<": очередь полностью заполнена"<<endl;
-    }
-
-    return 0;
 }
 
 Queue::minus_element()
 {
-    try
-    {
-        if(begin_of_queue == end_of_queue)
+    if(begin_of_queue == end_of_queue)
             throw 1;
 
         for (i = 0; i<=SIZE; i++)
@@ -59,15 +50,8 @@ Queue::minus_element()
 
         end_of_queue--;
         }
+        return 0;
 
-    }
-
-    catch(int error)
-    {
-        cout<<"Ошибка №"<<error<<": в очереди нет элементов"<<endl;
-    }
-
-    return 0;
 }
 
 
@@ -87,6 +71,6 @@ Queue::print_queue()
         cout<<"Ошибка №"<<error<<": в очереди не элементов"<<endl;
     }
 
-
     return 0;
+
 }
